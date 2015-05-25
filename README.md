@@ -9,13 +9,15 @@ Your outer most tag for width limited responsive section should use the "contain
 
 When you are planning on using columns inside a container, create a child to the container with the class of "group"
 
-Columns are attempted to be written with semantic classes to make it clear what they are doing. The default is a twelve column grid. Things can be easily changed to be less or more (more exlanations to come). For example, to create a column that spans 6 of the twelve columns, write <div class="six columns">
+Columns are attempted to be written with semantic classes to make it clear what they are doing. The default is a twelve column grid. Things can be easily changed to be less or more (more exlanations to come). For example, to create a column that spans 6 of the twelve columns, write ```<div class="six columns">```
 
+```
 <div class="container">
   <div class="group">
     <div class="six columns">
     </div>
   </div>
 </div>
+```
 
 More instructions, rules, guideliens — whatever — to come.
