@@ -33,6 +33,12 @@ html, body {
   visibility: hidden;
 }
 
+.visible-lg,
+.hidden-sm {
+  display: none;
+  visibility: hidden;
+}
+
 /* super simple CF from the very end of here: http://css-tricks.com/snippets/css/clear-fix/ — only works in IE8+, so not so super back compatible — but we're looking to the future! */
 .clearfix::after,
 .group::after {
@@ -49,10 +55,18 @@ html, body {
 .right-align-text { text-align: right;  }
 
 /* columnar stuff */
+#wrapper,
+.wrapper,
 .container {
   margin: 0 auto;
   padding: 0 1rem 2rem 1rem;
   width: 100%;
+}
+
+.group,
+.grouped,
+.row {
+  margin: 0 0 2rem 0;
 }
 
 .column,
@@ -61,10 +75,12 @@ html, body {
   padding: 0;
 }
 
-.group {
-  margin: 0 0 2rem 0;
-}
-
+/*
+  widths are set using CSS calc() function
+  width: calc(100% / x * y);
+  where x = #of columns total, and y = #of columns the class crosses.
+  by default this is a 12 column grid, so x = 12
+*/
 .one,
 .two,
 .three,
@@ -78,14 +94,11 @@ html, body {
 .ten,
 .eleven,
 .twelve,
-.fullwidth    { width: calc(100% / 12 * 12); }
-
-.visible-lg {
-  display: none;
-  visibility: hidden;
-}
+.fullwidth    { width: calc(100% / 12 * 12); } /*everything goes full width on skinny viewports */
 
 @media (min-width: 30rem) {
+  #wrapper,
+  .wrapper,
   .container {
     margin: 0 auto;
     padding-bottom: 2rem;
@@ -102,10 +115,18 @@ html, body {
   .clearLeft   {display:block;clear:left;}
   .clearRight  {display:block;clear:right;}
 
+  #wrapper,
+  .wrapper,
   .container {
     margin: 0 auto;
     padding-bottom: 2rem;
     max-width: 75rem;
+  }
+
+  .group,
+  .grouped,
+  .row {
+    margin: 0 -1rem 2rem -1rem;
   }
 
   /* columnar stuff */
@@ -116,11 +137,13 @@ html, body {
     padding: 0 1rem;
   }
 
-  .group {
-    margin: 0 -1rem 2rem -1rem;
-  }
-
-  /* default 12 column grid */
+  /*
+    widths are set using CSS calc() function
+    width: calc(100% / x * y);
+    where x = #of columns total, and y = #of columns the class crosses.
+    by default this has been set as a 12 column grid, so x = 12.
+    y matches numerically the class number.
+  */
   .one                   { width: calc(100% / 12 * 01); }
   .two                   { width: calc(100% / 12 * 02); }
   .three                 { width: calc(100% / 12 * 03); }
@@ -153,10 +176,14 @@ html, body {
     display: block;
     visibility: visible;
   }
-
+  .visible-sm,
+  .hidden-lg {
+    display: none;
+    visibility: hidden;
+  }
 }
 
-/* Base Styles
+/* Base type and layout Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* NOTE
 html is set to 100% so that all the REM measurements throughout this doc are
@@ -178,6 +205,8 @@ body {
 }
 
 /* Base Typography
+  these are currently way to large and slightly strange...
+  come up with better standard for deciding sizes - modularscale based on 1.618?
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
