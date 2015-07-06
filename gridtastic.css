@@ -1,0 +1,980 @@
+@import "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+/* ============================ RESET ============================ */
+/* ===== (this started as the) Eric Meyer Reset ===== */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1.33;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* ===== CUSTOM RESET ===== */
+object {
+  outline: none;
+  display: block;
+  overflow: hidden;
+}
+/* force redraw on IE8, fix outline/scroll bug on Firefox 3.6, remove unnecessary margin (copied from swffit)  */
+textarea {
+  overflow: auto;
+}
+/* fix IE */
+iframe {
+  border: 0;
+}
+/* fix line-height [https://gist.github.com/413930] */
+sup,
+sub {
+  line-height: 0;
+  font-size: .75em;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* ============================ /RESET ============================ */
+/* General
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Color Palette */
+/** From OOKB (as part of my personal vernacular, being used everywhere :) **/
+/********/
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  /* type stuff */
+  -moz-font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -ms-font-feature-settings: "kern";
+  -o-font-feature-settings: "kern";
+  font-feature-settings: "kern";
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+/* Visibility Classes */
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.visible-lg,
+.hidden-sm {
+  display: none;
+  visibility: hidden;
+}
+.hide-text {
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.show-text {
+  text-indent: 0%;
+  white-space: normal;
+  overflow: visible;
+}
+/* floats and clears */
+.left,
+.floatleft,
+.float-left,
+.leftfloat,
+.left-float {
+  float: left;
+}
+.right,
+.floatright,
+.float-right,
+.rightfloat,
+.right-float {
+  float: right;
+}
+.clear,
+.clearboth,
+.clear-both,
+.both-clear,
+.bothclear {
+  clear: both;
+}
+.clearleft,
+.leftclear,
+.clear-left,
+.left-clear {
+  clear: left;
+}
+.clearright,
+.rightclear,
+.clear-right,
+.right-clear {
+  clear: right;
+}
+.add-clearfix {
+  content: '';
+  display: table;
+  clear: both;
+}
+.clearfix::after,
+.clear-fix::after,
+.cf::after,
+.group::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+/*
+  center, left and right align text.
+  it is my personal opinion that you should never use "text-align: justify;" on the web.
+  browsers aren't good enough at typesetting justified text.
+  I have not created those styles for that reason.
+*/
+.text-center,
+.textcenter,
+.center-text,
+.centertext,
+.align-center,
+.center-align,
+.aligncenter,
+.centeralign {
+  text-align: center;
+}
+.text-right,
+.right-text,
+.textright,
+.righttext,
+.align-right,
+.right-align,
+.alignright,
+.rightalign {
+  text-align: right;
+}
+.text-left,
+.left-text,
+.textleft,
+.lefttext,
+.align-left,
+.left-align,
+.alignleft,
+.leftalign {
+  text-align: left;
+}
+/* columnar stuff */
+#wrapper,
+.wrapper,
+.container {
+  margin: 0 auto;
+  padding: 0 1rem 2rem 1rem;
+  width: 100%;
+}
+.group,
+.grouped,
+.row {
+  margin: 0 0 2rem 0;
+}
+.column,
+.columns {
+  margin: 0 0 2rem 0;
+  padding: 0;
+}
+/* Start of the Grid
+===========================================*/
+/*
+  widths are set using CSS calc() function
+  width: calc(100% / x * y);
+  where x = #of columns total, and y = #of columns the class crosses.
+  by default this is a 12 column grid, so x = 12
+*/
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.halfwidth,
+.seven,
+.eight,
+.nine,
+.ten,
+.eleven,
+.twelve,
+.fullwidth {
+  width: calc(100%);
+}
+/*everything goes full width on skinny viewports */
+@media (min-width: 30rem) {
+  #wrapper,
+  .wrapper,
+  .container {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    min-width: 30rem;
+    width: 80%;
+  }
+}
+@media (min-width: 50rem) {
+  #wrapper,
+  .wrapper,
+  .container {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    max-width: 75rem;
+  }
+  .group,
+  .grouped,
+  .row {
+    margin: 0 -1rem 2rem -1rem;
+  }
+  /* columnar stuff */
+  .column,
+  .columns {
+    float: left;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
+  /* the Grid
+  ===========================================*/
+  /*
+    widths are set using CSS calc() function
+    width: calc(100% / x * y);
+    where x = #of columns total, and y = #of columns the class crosses.
+    by default this has been set as a 12 column grid, so x = 12.
+    y matches numerically the class number.
+  */
+  .one {
+    width: calc(8.33333333%);
+  }
+  .two {
+    width: calc(16.66666667%);
+  }
+  .three {
+    width: calc(25%);
+  }
+  .four {
+    width: calc(33.33333333%);
+  }
+  .five {
+    width: calc(41.66666667%);
+  }
+  .six,
+  .halfwidth {
+    width: calc(50%);
+  }
+  .seven {
+    width: calc(58.33333333%);
+  }
+  .eight {
+    width: calc(66.66666667%);
+  }
+  .nine {
+    width: calc(75%);
+  }
+  .ten {
+    width: calc(83.33333333%);
+  }
+  .eleven {
+    width: calc(91.66666667%);
+  }
+  .twelve,
+  .fullwidth {
+    width: calc(100%);
+  }
+  /*
+    you can easily add more columns (or remove columnes) by
+    changing 12 to the number of total columns you want, and then
+    add additional classes for the extra columns...
+    like if you want 16 column base grid, you'd get something like
+    width: calc(100% / x * y);
+    x would be 16
+    width: calc(100% / 16 * #columnsSpanned);
+    make sense?
+  */
+  /* some standard offsets */
+  .offset-by-one {
+    margin-left: calc(8.33333333%);
+  }
+  .offset-by-two {
+    margin-left: calc(16.66666667%);
+  }
+  .offset-by-three {
+    margin-left: calc(25%);
+  }
+  .offset-by-four {
+    margin-left: calc(33.33333333%);
+  }
+  .offset-by-five {
+    margin-left: calc(41.66666667%);
+  }
+  .offset-by-six,
+  .offset-by-half {
+    margin-left: calc(50%);
+  }
+  .offset-by-seven {
+    margin-left: calc(58.33333333%);
+  }
+  .offset-by-eight {
+    margin-left: calc(66.66666667%);
+  }
+  .offset-by-nine {
+    margin-left: calc(75%);
+  }
+  .offset-by-ten {
+    margin-left: calc(83.33333333%);
+  }
+  .offset-by-eleven {
+    margin-left: calc(91.66666667%);
+  }
+  .offset-by-twelve {
+    margin-left: calc(100%);
+  }
+  .visible-lg {
+    display: block;
+    visibility: visible;
+  }
+  .visible-sm,
+  .hidden-lg {
+    display: none;
+    visibility: hidden;
+  }
+}
+/* Base type and layout Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 100% so that all the REM measurements throughout this doc are
+are based on 16px sizing. So basically 1rem = 16px :) — should a better solution be devised? */
+html {
+  font-size: 100%;
+}
+body {
+  font-size: 1em;
+  /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.5;
+  font-weight: 400;
+  /* do I want a better, wider ranging font-stack? */
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #231f20;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+}
+/* Base Typography
+  these are currently way to large and slightly strange...
+  come up with better standard for deciding sizes - modularscale based on 1.618?
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  line-height: normal;
+}
+h1 {
+  font-size: 3.0rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2.0rem;
+}
+h4 {
+  font-size: 1.75rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+h6 {
+  font-size: 1.33rem;
+}
+/* Larger than phablet */
+/* these aren't currently being changed... though perhaps they need to be */
+@media (min-width: 30rem) {
+  h1 {
+    font-size: 3.0rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2.0rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.5rem;
+  }
+  h6 {
+    font-size: 1.33rem;
+  }
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  line-height: normal;
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: normal;
+}
+ul {
+  margin-bottom: 1em;
+  line-height: normal;
+}
+small,
+.small {
+  font-size: .9rem;
+}
+img {
+  max-width: 100%;
+}
+/* Centering in the unknown */
+/* from http://css-tricks.com/centering-in-the-unknown/
+  ---------------------------------------------------------*/
+/* This parent can be any width and height */
+.block {
+  text-align: center;
+}
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
+}
+/* The element to be centered, can
+   also be of any width and height */
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+}
+/**
+NOTES AND HELP:
+- look into this more: http://www.smashingmagazine.com/2011/08/23/the-semantic-grid-system-page-layout-for-tomorrow/
+- Maybe try exploring more of less.js's powers for dynamically building and nesting styles?
+- http://tylertate.com/blog/2013/06/11/retina-images-using-media-queries-and-LESS-CSS.html
+- http://nicolasgallagher.com/flexible-css-cover-images/
+- http://responsive.gs/ (really nice code coloring/styling)
+- http://jxnblk.com/rebass/
+- http://jxnblk.com/writing/posts/mathematical-web-typography/
+- http://eng.wealthfront.com/2013/08/functional-css-fcss.html
+- http://glenmaddern.com/articles/interoperable-css
+- http://www.w3.org/TR/wai-aria-practices/#menu
+- http://jxnblk.com/react-fitter-happier-text/
+**/
+/**
+  This is compiled from best practices and interesting ideas via the following:
+    - https://css-tricks.com/tips-for-creating-great-web-forms/
+    - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Styling_HTML_forms
+    - http://b2cloud.com.au/tutorial/css-tips-and-tricks-for-styling-forms/
+    - https://css-tricks.com/display-form/
+    - http://kaylarose.github.io/Glowform/
+    - http://purecss.io/forms/
+    - http://foundation.zurb.com/docs/components/forms.html
+    - http://getbootstrap.com/css/#forms
+**/
+/* styling those forms */
+form input,
+fieldset input,
+form button,
+fieldset button,
+form select,
+fieldset select,
+form textarea,
+fieldset textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: normal;
+}
+form .message #form-url,
+fieldset .message #form-url {
+  display: none;
+}
+#contact form input,
+#contact form button,
+#contact form select,
+#contact form textarea {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: .25em;
+}
+form .group .group {
+  margin: 0;
+}
+form .column,
+form .columns {
+  margin-bottom: 0;
+}
+.contact-details.vcard {
+  margin-bottom: 1.5em;
+}
+@media (min-width: 50em) {
+  #contact .inner::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  #contact form,
+  .contact-details.vcard {
+    float: left;
+    padding: 0 1em;
+  }
+  #contact form {
+    width: 66.66666666667%;
+  }
+  .contact-details.vcard {
+    float: left;
+    width: 33.3333333333%;
+  }
+}
+/**
+    Started with basic form stuff from Skeleton
+    and then have evolved it with stuff from GridForms and Bootstrap
+    Bam!
+**/
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="phone"],
+input[type="subject"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea,
+select {
+  height: 2em;
+  padding: 0.5em 0.75em;
+  background-color: #ffffff;
+  border: 1px solid #848478;
+  border-radius: .25em;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="phone"],
+input[type="subject"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+textarea {
+  min-height: 4rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+input:focus,
+input[type="checkbox"]:focus,
+input[type="radio"]:focus,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="phone"],
+input[type="subject"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea:focus,
+select:focus {
+  border: 1px solid #ae8ba4;
+  outline-color: #ae8ba4;
+}
+/* help with :focus pseudo-class & outline:
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/outline
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style
+    - http://reference.sitepoint.com/css/pseudoclass-focus
+    - https://css-tricks.com/almanac/selectors/f/focus/
+*/
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+fieldset {
+  padding: 1em;
+  border: 1px solid #606767;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}
+/* Help Text */
+.help-block {
+  display: block;
+  margin: .5em 0 1em 0;
+  font-size: .8em;
+  color: #848478;
+}
+/*
+  Checkboxes and Radio buttons
+*/
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  -webkit-appearance: checkbox;
+  box-sizing: border-box;
+  margin: 3px 0.5ex;
+  padding: 1px;
+  cursor: auto;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+}
+/**
+  laying out the form a bit better,
+  should do this by maybe adding column classes?
+  this will have to work for now.
+**/
+.input-group {
+  display: inline-table;
+  vertical-align: middle;
+  position: relative;
+  width: 100%;
+}
+.input-group > * {
+  width: auto;
+  display: table-cell;
+}
+.input-group .form-control:first-child,
+.input-group .input-group-addon:first-child,
+.input-group .input-group-btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-group .form-control:last-child,
+.input-group .input-group-addon:last-child,
+.input-group .input-group-btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-group .form-control:not(:first-child):not(:last-child),
+.input-group .input-group-addon:not(:first-child):not(:last-child),
+.input-group .input-group-btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.input-group .input-group-addon {
+  padding: 0.5em 0.75em;
+  font-size: inherit;
+  line-height: 0;
+  color: #848478;
+  text-align: center;
+  background-color: #ebf1e9;
+  border: 1px solid #848478;
+  border-radius: 4px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.input-group .input-group-addon:first-child {
+  border-right: 0;
+}
+.input-group .input-group-addon:last-child {
+  border-left: 0;
+}
+/**
+  Success, warning, error, failure, etc.
+**/
+.has-success .form-control,
+.has-warning .form-control,
+.has-error .form-control {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-success .checkbox,
+.has-success .checkbox-inline,
+.has-success .control-label,
+.has-success .help-block,
+.has-success .radio,
+.has-success .radio-inline,
+.has-success .form-control-feedback,
+.has-success.checkbox label,
+.has-success.checkbox-inline label,
+.has-success.radio label,
+.has-success.radio-inline label {
+  color: #8ca573;
+  outline-color: #8ca573;
+}
+.has-success .form-control {
+  border-color: #8ca573;
+  outline-color: #8ca573;
+  background: #f7f9f5;
+}
+.has-warning .checkbox,
+.has-warning .checkbox-inline,
+.has-warning .control-label,
+.has-warning .help-block,
+.has-warning .radio,
+.has-warning .radio-inline,
+.has-warning .form-control-feedback,
+.has-warning.checkbox label,
+.has-warning.checkbox-inline label,
+.has-warning.radio label,
+.has-warning.radio-inline label {
+  color: #c5c065;
+  outline-color: #c5c065;
+}
+.has-warning .form-control {
+  border-color: #c5c065;
+  outline-color: #c5c065;
+  background: #fdfdf9;
+}
+.has-error .checkbox,
+.has-error .checkbox-inline,
+.has-error .control-label,
+.has-error .help-block,
+.has-error .radio,
+.has-error .form-control-feedback,
+.has-error .radio-inline,
+.has-error.checkbox label,
+.has-error.checkbox-inline label,
+.has-error.radio label,
+.has-error.radio-inline label {
+  color: #b75051;
+  outline-color: #b75051;
+}
+.has-error .form-control {
+  border-color: #b75051;
+  outline-color: #b75051;
+  background: #f8efef;
+}
+/* switch glyphicons to fontawesome */
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-remove::before {
+  content: "\f00d";
+}
+.glyphicon-ok::before {
+  content: "\f00c";
+}
+.glyphicon-warning-sign::before {
+  content: "\f071";
+}
+/** some other tweaks? */
+/*
+  Nice logins:
+  https://bank.simple.com/signin
+  https://www.paypal.com/signin/?country.x=US&locale.x=en_US
+  https://thenounproject.com/accounts/login/
+  https://icloud.com/
+*/
+.form-group {
+  position: relative;
+}
+.form-control-feedback {
+  position: absolute;
+  right: -1em;
+  top: .25em;
+}
+[for="url-355711833"] {
+  display: none !important;
+}
+.form-group {
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #contact form button[type="submit"] {
+    margin: 0 1em;
+    margin-left: calc(25%);
+    width: calc(75%);
+    float: left;
+  }
+  [class*='col-'] {
+    margin: 0;
+    padding: 0;
+    float: left;
+  }
+  .col-sm-3 {
+    width: calc(25%);
+  }
+  .col-sm-9 {
+    width: calc(75%);
+  }
+}
