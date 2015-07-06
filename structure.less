@@ -134,14 +134,18 @@ html, body {
   clear: right;
 }
 
+.add-clearfix {
+    content: '';
+    display: table;
+    clear: both;
+}
+
 .clearfix,
 .clear-fix,
 .cf,
 .group {
   &::after {
-    content: '';
-    display: table;
-    clear: both;
+     .add-clearfix;
   }
 }
 
